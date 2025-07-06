@@ -1,6 +1,6 @@
 // Xinference API 封装
 export async function fetchTranslation({ baseURL, apiKey, modelName, pageImageBase64 }) {
-  const response = await fetch(`${baseURL}/v1/chat/completions`, {
+  const response = await fetch(`${baseURL}/chat/completions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export async function fetchTranslation({ baseURL, apiKey, modelName, pageImageBa
 }
 
 export async function explainClassicalText({ baseURL, apiKey, modelName, systemPrompt, userPrompt, onMessage }) {
-  const response = await fetch(`${baseURL}/v1/chat/completions`, {
+  const response = await fetch(`${baseURL}/chat/completions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
