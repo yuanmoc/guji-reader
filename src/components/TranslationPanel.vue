@@ -65,6 +65,7 @@ async function translatePage() {
     const res = await fetchTranslation({
       baseURL: store.baseURL,
       apiKey: store.apiKey,
+      userPrompt: store.fetchTranslationPrompt,
       modelName: store.modelName,
       pageImageBase64,
     });

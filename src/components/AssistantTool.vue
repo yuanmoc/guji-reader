@@ -5,13 +5,7 @@
     </div>
     
     <div class="assistant-tool-body">
-        <el-input
-        v-model="systemPrompt"
-        type="textarea"
-        :rows="3"
-        placeholder="输入系统提示词..."
-        class="input-box"
-        />
+        
       <el-input
         v-model="userPrompt"
         type="textarea"
@@ -39,7 +33,6 @@ import { ElMessage } from 'element-plus';
 
 const store = useAppStore();
 const userPrompt = ref('');
-const systemPrompt = ref('');
 const result = ref('');
 const loading = ref(false);
 
@@ -60,7 +53,7 @@ async function onExplain() {
       baseURL: store.baseURL,
       apiKey: store.apiKey,
       modelName: store.modelName,
-      systemPrompt: systemPrompt.value,
+      systemPrompt: store.explainPrompt, // 直接用全局配置
       userPrompt: userPrompt.value,
       onMessage: (msg) => {
         result.value += msg;
